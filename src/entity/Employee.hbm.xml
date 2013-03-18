@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/03/2013 11:19:17 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="entity.Employee" table="employee" catalog="hibernate" discriminator-value="EMP">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        
+        <discriminator column="type" type="string"></discriminator>
+
+        <property name="name" type="string">
+            <column name="name" length="50" not-null="true" />
+        </property>
+        
+        <subclass name="entity.RegularEmployee" discriminator-value="REG_EMP">
+            <property name="salary" type="double">
+                <column name="salary" precision="22" scale="0" not-null="true" />
+            </property>
+            <property name="bonus" type="double">
+                <column name="bonus" precision="22" scale="0" not-null="true" />
+            </property>
+        </subclass>
+        
+        <subclass name="entity.ContractEmployee" discriminator-value="CON_EMP">
+            <property name="perHourRate" type="double">
+                <column name="per_hour_rate" precision="22" scale="0" not-null="true" />
+            </property>
+            <property name="contractPeriod" type="date">
+                <column name="contract_period" length="10" not-null="true" />
+            </property>
+        </subclass>
+    </class>
+</hibernate-mapping>
