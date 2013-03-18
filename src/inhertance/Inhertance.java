@@ -22,7 +22,7 @@ public class Inhertance {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+                    
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         
