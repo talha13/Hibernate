@@ -29,7 +29,6 @@ public class Inhertance {
         Employee employee = new Employee();
         employee.setName("Employee");
         
-        
         RegularEmployee regularEmployee = new RegularEmployee();
         regularEmployee.setName("Regular");
         regularEmployee.setSalary(20_000);
